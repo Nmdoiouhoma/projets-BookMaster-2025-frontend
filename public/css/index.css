@@ -1,34 +1,19 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Centre verticalement */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+.card img {
+    height: 200px;
+    object-fit: cover;
 }
 
-.form-container {
-    width: 100%;
-    max-width: 500px; /* Augmente la taille du formulaire */
-    padding: 25px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
-h1 {
-    font-size: 2rem; /* Agrandir le titre */
-    text-align: center;
-}
-
-.form-label {
-    font-size: 1.2rem; /* Agrandir les libellés */
-}
-
-.form-control {
-    font-size: 1.1rem; /* Agrandir les champs de texte */
-}
-
-.btn {
-    font-size: 1.2rem; /* Agrandir le bouton */
-    width: 100%;
+h3 {
+    font-size: 1.5rem;
+    margin-top: 20px;
 }

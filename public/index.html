@@ -1,12 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>BookMaster</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Gestionnaire de Bibliothèque</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
-<h1>Page D'accueil</h1>
-<script>console.log('hello')</script>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">📚 Ma Bibliothèque</a>
+
+        <form class="d-flex search-bar" action="liste-livres.html" method="GET">
+            <input class="form-control me-2" type="search" name="q" placeholder="Rechercher un livre..." aria-label="Rechercher">
+            <button class="btn btn-outline-success" type="submit">🔍</button>
+        </form>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="login.html">Se connecter</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="register.html">Créer un compte</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="banner">
+    <div class="container text-center">
+        <h1>Bienvenue dans votre gestionnaire de bibliothèque</h1>
+        <p>Organisez vos lectures, découvrez de nouveaux livres et partagez vos avis avec la communauté.</p>
+        <a href="liste-livres.html" class="btn btn-success btn-lg">Voir le catalogue !</a>
+    </div>
+</header>
+
+<section class="container my-5">
+    <h2 class="text-center">📖 Livres Populaires</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="images/book1.jpg" class="card-img-top" alt="Livre 1">
+                <div class="card-body">
+                    <h5 class="card-title">Titre du Livre 1</h5>
+                    <p class="card-text">Auteur : John Doe</p>
+                    <a href="#" class="btn btn-outline-primary">Voir plus</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="images/book2.jpg" class="card-img-top" alt="Livre 2">
+                <div class="card-body">
+                    <h5 class="card-title">Titre du Livre 2</h5>
+                    <p class="card-text">Auteur : Jane Doe</p>
+                    <a href="#" class="btn btn-outline-primary">Voir plus</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="images/book3.jpg" class="card-img-top" alt="Livre 3">
+                <div class="card-body">
+                    <h5 class="card-title">Titre du Livre 3</h5>
+                    <p class="card-text">Auteur : Paul Auteur</p>
+                    <a href="#" class="btn btn-outline-primary">Voir plus</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container my-5">
+    <h2 class="text-center">🚀 Fonctionnalités Clés</h2>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h3>📚 Gestion de bibliothèque</h3>
+            <p>Ajoutez et organisez vos livres avec des statuts personnalisés.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>🔍 Recherche intuitive</h3>
+            <p>Recherchez par titre, auteur ou genre avec des filtres avancés.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>💬 Communauté</h3>
+            <p>Partagez vos avis et découvrez des recommandations personnalisées.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-light text-center p-3">
+    <p>© 2025 Ma Bibliothèque - Tous droits réservés.</p>
+</footer>
+
 </body>
 </html>
