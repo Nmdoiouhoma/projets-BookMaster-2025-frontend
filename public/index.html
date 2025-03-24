@@ -10,31 +10,21 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">📚 Ma Bibliothèque</a>
+    <div class="container-fluid align-items-center">
+        <a class="navbar-brand"  href="#">📚 Ma Bibliothèque</a>
 
-        <form class="d-flex search-bar" action="liste-livres.html" method="GET">
-            <input class="form-control me-2" type="search" name="q" placeholder="Rechercher un livre..." aria-label="Rechercher">
+        <form class="d-flex search-bar" id="searchForm" action="bookList.html" method="GET">
+            <input class="form-control me-2" id="searchInput"  type="search" name="q" placeholder="Faire une recherche..." aria-label="Rechercher">
             <button class="btn btn-outline-success" type="submit">🔍</button>
         </form>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="login.html">Se connecter</a></li>
-                <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="register.html">Créer un compte</a></li>
-            </ul>
-        </div>
     </div>
 </nav>
-
+<br>
 <header class="banner">
     <div class="container text-center">
         <h1>Bienvenue dans votre gestionnaire de bibliothèque</h1>
         <p>Organisez vos lectures, découvrez de nouveaux livres et partagez vos avis avec la communauté.</p>
-        <a href="liste-livres.html" class="btn btn-success btn-lg">Voir le catalogue !</a>
+        <a href="bookList.html" class="btn btn-success btn-lg">Voir le catalogue !</a>
     </div>
 </header>
 
@@ -90,11 +80,16 @@
             <p>Partagez vos avis et découvrez des recommandations personnalisées.</p>
         </div>
     </div>
+    <br>
+    <div class="container text-center">
+        <button type="button" class="btn btn-primary" OnClick="window.location.href= 'login.html'" id="loginButton">Se connecter</button>
+        <button type="button" class="btn btn-primary" Onclick="window.location.href = 'register.html'" id="signupButton">S'inscrire</button>
+    </div>
 </section>
 
 <footer class="bg-light text-center p-3">
     <p>© 2025 Ma Bibliothèque - Tous droits réservés.</p>
 </footer>
-
+<script src="../app/home.js" defer></script>
 </body>
 </html>

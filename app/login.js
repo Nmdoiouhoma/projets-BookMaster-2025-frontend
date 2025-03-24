@@ -45,7 +45,11 @@ class Login {
             });
 
             const responseData = await response.json();
-            console.log("Réponse complète du serveur :", responseData);
+
+            if(responseData){
+                console.log("Réponse complète du serveur :", responseData);
+                localStorage.setItem("token", responseData.token);
+            }
 
             return response.status;
         } catch (error) {
