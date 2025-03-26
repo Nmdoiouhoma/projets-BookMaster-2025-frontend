@@ -17,23 +17,24 @@ document.addEventListener('DOMContentLoaded', () => {
                         const title = book.volumeInfo.title || "Titre inconnu";
                         const author = book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "Auteur inconnu";
                         const coverUrl = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "https://via.placeholder.com/100x150?text=Pas+de+couverture";
-
+                        const categories = book.volumeInfo.categories ? book.volumeInfo.categories.join(", ") : "Genre du livre inconnu";
                         const bookCard = document.createElement("div");
+                        const publishedDate = book.volumeInfo.publishedDate || "Date de publication inconnue";
                         bookCard.classList.add("book-card");
 
                         bookCard.innerHTML = `
-                                    <img src="${coverUrl}" alt="${title}">
-                                    <div class="title">${title}</div>  
-                                    <div class="author">${author}</div>
-                                    <div class="buttons">
-                                        <div class="stars">
-                                            <span class="star" data-value="1">★</span>
-                                            <span class="star" data-value="2">★</span>
-                                            <span class="star" data-value="3">★</span>
-                                        </div>
-                                        <button class="like-btn">🤍</button>
-                                    </div>
-                                `;
+                            <img src="${coverUrl}" alt="${title}">
+                            <div class="title">${title}</div>  
+                            <div class="author">${author}</div>                    
+                            <div class="buttons">
+                                <div class="stars">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                </div>
+                                <button class="like-btn">🤍</button>
+                            </div>
+                        `;
 
                         bookListContainer.appendChild(bookCard);
 
@@ -61,6 +62,21 @@ document.addEventListener('DOMContentLoaded', () => {
                                 likeButton.textContent = "🤍";
                                 alert(`Vous n'aimez plus "${title}".`);
                             }
+                        });
+
+                        // Gestion du clic sur le titre du livre
+                        bookCard.querySelector(".title").addEventListener("click", function () {
+                            const bookInfo = {
+                                title: title,
+                                author: author,
+                                description: book.volumeInfo.description || "Aucune description disponible.",
+                                publishedDate: publishedDate,
+                                cover: coverUrl,
+                                categories: categories,
+                            };
+
+                            localStorage.setItem("bookDetails", JSON.stringify(bookInfo));
+                            window.location.href = "../public/bookDetail.html";
                         });
                     });
                 } else {

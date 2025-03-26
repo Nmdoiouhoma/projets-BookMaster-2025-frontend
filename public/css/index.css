@@ -138,3 +138,40 @@ button:hover {
 .like-btn.active {
     color: red;
 }
+ #bookCover {
+     width: 250px;  /* Augmente la largeur */
+     height: auto;  /* Garde les proportions */
+     display: block;
+     border-radius: 10px;  /* Ajoute des bords arrondis */
+     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Effet d'ombre */
+ }
+
+#status {
+    appearance: none; /* Supprime le style par défaut du navigateur */
+    padding: 10px;
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol */
+#status:hover {
+    background-color: #f0f8ff;
+    border-color: #0056b3;
+}
+
+/* Effet au focus */
+#status:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+#status.open {
+    transform: scale(1.05);
+}
+
+
