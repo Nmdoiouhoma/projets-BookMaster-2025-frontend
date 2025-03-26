@@ -110,3 +110,31 @@ button:hover {
     color: #888;
     margin-top: 20px;
 }
+.buttons {
+    margin-top: 5px;
+}
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+}
+.star {
+    font-size: 18px;
+    cursor: pointer;
+    color: gray;
+    transition: color 0.2s;
+}
+.star.active {
+    color: gold;
+}
+.like-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: gray;
+    transition: color 0.2s;
+}
+.like-btn.active {
+    color: red;
+}
