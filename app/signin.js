@@ -19,8 +19,8 @@ class Signin {
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
             const lastname = document.getElementById("lastname").value;
-
-
+            const avatar = document.getElementById("avatar").value;
+            const dob = document.getElementById("dob").value;
 
             if (password !== confirmPassword) {
                 alert("Les mots de passe ne correspondent pas !");
@@ -33,7 +33,9 @@ class Signin {
                 lastname: lastname,
                 name: name,
                 email: email,
-                password: password
+                password: password,
+                avatar: avatar,
+                dob: dob,
             };
 
             console.log("Données envoyées au backend :", userData); // Vérifier les données envoyées
@@ -69,4 +71,4 @@ class Signin {
     }
 }
 
-const signin = new Signin();
+const signin = new  Signin();

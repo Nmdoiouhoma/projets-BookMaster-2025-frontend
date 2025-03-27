@@ -18,13 +18,16 @@
     <br>
     <img id="bookCover" src="" alt="Couverture du livre">
     <h3 id="bookCategory">Genre : </h3>
+    <form id="myForm">
+        <label for="statusSelect">Ajouter ce livre :</label>
+        <select name="status" id="statusSelect">
+            <option value="En cours">En cours</option>
+            <option value="A lire">A lire</option>
+            <option value="Déja lu">Déja lu</option>
 
-    <label for="status">Ajouter ce livre :</label>
-    <select name="status" id="status">
-        <option value="En cours ">En cours</option>
-        <option value="A lire">A lire</option>
-        <option value="Déja lu">Déja lu</option>
-    </select>
+        </select>
+        <button id="submitButton" type="submit">Enregistrer</button>
+    </form>
 
     <h3 id="bookNote">Note et avis :</h3>
     <button onclick="window.location.href='bookList.html'" type="button">Retour</button>

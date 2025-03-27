@@ -2,39 +2,38 @@ document.addEventListener("DOMContentLoaded", () => {
     checkAuth();
 });
 
-function checkAuth() {
+async function checkAuth() {
     const token = localStorage.getItem("token");
     const loginButton = document.getElementById("loginButton");
     const signupButton = document.getElementById("signupButton");
 
     if (!token) {
-        console.log('Erreur de connexion : Aucun token trouvé');
+        console.log('🚫 Aucun token trouvé, utilisateur non connecté.');
         return;
     }
 
     try {
-        const payload = JSON.parse(atob(token.split(".")[1])); // Décoder le token JWT
-        const currentTime = Math.floor(Date.now() / 1000); // Temps actuel en secondes
+        const response = await fetch("http://localhost:3000/user/me", {
+            method: "GET",
+            headers: { "Authorization": `Bearer ${token}` }
+        });
 
-        if (payload.exp < currentTime) { // Correction de la condition
-            console.log('Erreur de connexion : Le token est expiré');
-            localStorage.removeItem("token");
-            return;
+        if (!response.ok) {
+            throw new Error("Utilisateur non authentifié");
         }
-    if(payload.username){
-        alert(`Bienvenue dans le site Bookmaster ${payload.username} ! 🎉`);
-    }
-    else{
-        console.warn("Erreur nom d'utilisateur non trouvé dans le token")
-    }
-        console.log('Token valide, utilisateur connecté');
+
+        const user = await response.json();
+        console.log("✅ Utilisateur connecté :", user);
+
+        alert(`Bienvenue sur Bookmaster, ${user.username} ! 🎉`);
+
         if (loginButton) loginButton.style.display = "none";
         if (signupButton) signupButton.style.display = "none";
 
-
     } catch (error) {
-        console.log('Erreur lors du décodage du token, suppression et redirection');
-        localStorage.removeItem("token");
+        console.error("⚠️ Erreur d'authentification :", error);
+        localStorage.removeItem("token");//Supprime le token si invalide
+        window.location.href="../public/login.html"
     }
 }
 

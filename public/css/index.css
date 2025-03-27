@@ -146,7 +146,7 @@ button:hover {
      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Effet d'ombre */
  }
 
-#status {
+#statusSelect {
     appearance: none; /* Supprime le style par défaut du navigateur */
     padding: 10px;
     border: 2px solid #007BFF;
@@ -159,19 +159,62 @@ button:hover {
 }
 
 /* Effet au survol */
-#status:hover {
+#statusSelect:hover {
     background-color: #f0f8ff;
     border-color: #0056b3;
 }
 
 /* Effet au focus */
-#status:focus {
+#statusSelect:focus {
     outline: none;
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
 
-#status.open {
+#statusSelect.open {
     transform: scale(1.05);
 }
 
 
+#title{
+    text-align: center;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+.icon::before {
+    content: "📖"; /* Icône livre */
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section {
+        width: 90%;
+    }
+}
+
+#welcome {
+    text-align: center;
+    border: solid 1px #ddd;
+    font-size: large;
+    font-family: Arial, sans-serif;
+}

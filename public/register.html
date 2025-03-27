@@ -34,7 +34,7 @@
 
             <div class="mb-3">
                 <label for="dob" class="form-label">Date de naissance:</label>
-                <input type="date" id="dob" name="dob" class="form-control" required />
+                <input type="date" id="dob" name="birthday" class="form-control" required />
             </div>
 
             <div class="mb-3">
@@ -47,6 +47,14 @@
                 <input type="password" id="confirm_password" name="confirm_password" class="form-control" required minlength="8" />
             </div>
 
+            <div class="mb-3">
+                <h2>Uploader votre avatar</h2>
+                <form action="/upload-avatar" method="post" enctype="multipart/form-data">
+                    <label for="avatar">Choisissez un fichier :</label>
+                    <input type="file" id="avatar" name="avatar" accept="image/*" required>
+                    <input type="submit" value="Uploader">
+                </form>
+            </div>
             <button type="submit" class="btn btn-primary">S'inscrire</button>
         </form>
     </div>

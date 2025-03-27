@@ -20,13 +20,30 @@
         {
             document.querySelector(".container").innerHTML = "<h2> Aucune donnée disponible</h2>";
         }
+        addBook();
 
 });
-    document.getElementById("status").addEventListener("mousedown", function (e) {
-        this.classList.add("open");
-        setTimeout(() => this.classList.remove("open"), 200);
-    });
 
-addBook = () => {
-    //Implementer la fonction pour enregistrer un livre
-}
+    function addBook() {
+        const submitButton = document.getElementById("submitButton");
+        submitButton.addEventListener("click", function (event) {
+            event.preventDefault();  // Empêche le comportement par défaut du bouton
+
+            const status = document.getElementById("statusSelect").value;
+
+            const bookDetails = JSON.parse(localStorage.getItem('bookDetails'));
+
+            if (bookDetails) {
+                // Enregistre le statut et les informations du livre dans le localStorage
+                localStorage.setItem("Le status du livre", status);
+                localStorage.setItem("bookDetails", JSON.stringify(bookDetails));
+
+                alert('Livre enregistré avec succès');
+
+                // Redirige vers l'espace personnel
+                window.location.href = "../public/userSpace.html";
+            } else {
+                alert("Aucune information de livre trouvée.");
+            }
+        });
+    }
