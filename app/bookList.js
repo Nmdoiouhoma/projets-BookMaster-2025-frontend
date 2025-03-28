@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         const categories = book.volumeInfo.categories ? book.volumeInfo.categories.join(", ") : "Genre du livre inconnu";
                         const bookCard = document.createElement("div");
                         const publishedDate = book.volumeInfo.publishedDate || "Date de publication inconnue";
+                        const industryIdentifiers = book.volumeInfo.industryIdentifiers;
+                        const pageCount = book.volumeInfo.pageCount || "Non disponible";
                         bookCard.classList.add("book-card");
 
                         bookCard.innerHTML = `
@@ -73,6 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                 publishedDate: publishedDate,
                                 cover: coverUrl,
                                 categories: categories,
+                                industryIdentifiers: industryIdentifiers,
+                                pageCount: pageCount,
+
                             };
 
                             localStorage.setItem("bookDetails", JSON.stringify(bookInfo));

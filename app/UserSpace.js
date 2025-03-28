@@ -2,10 +2,10 @@ class UserSpace {
 
     constructor() {
         this.getUser()
-        this.printBookInfo()
+        printBookInfo()
     }
     async getUser() {
-        const token = document.getElementById("token");
+        const token = localStorage.getItem("token");
         if (!token) {
             console.error("Erreur aucun token trouvé");
         }
@@ -41,6 +41,12 @@ document.addEventListener("DOMContentLoaded", async () => {
  printBookInfo = () => {
     const bookDetails = JSON.parse(localStorage.getItem('bookDetails'));
     const status = localStorage.getItem('status');
+
+     console.log('Status du livre : ',status)
+     console.log("Livre enregistré :", bookDetails);
+     console.log("L'isbn du livre : ", bookDetails.industryIdentifiers)
+     console.log(`Le livre à ${bookDetails.pageCount} page`)
+
     if (bookDetails && status ) {
         if(status === "En cours"){
             document.getElementById('readList').textContent = "Livres en cours " + bookDetails.title + bookDetails.author;
