@@ -55,14 +55,14 @@ class BookDetail {
             cover: bookDetails.cover,
             status: status,
             isbn: isbn,
-            pageCount: bookDetails.pageCount,
+            page_count: bookDetails.pageCount,
         };
 
         const responseData = await this.insert(bookData)
 
         if (responseData === 201) {
             alert("Envoi des donnés vers la base de donnée reussi ✅ : ")
-            window.location.href = "../public/userSpace.html"
+            window.location.href = "../public/UserSpace.html"
         } else {
             alert("Erreur l\'envoie des donnés a échoué ❌")
 
@@ -70,9 +70,16 @@ class BookDetail {
     }
     async insert(bookData) {
         try {
-            const response = await fetch("http://localhost:3000/addBook", {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                console.error("❌ Token manquant");
+                return 401;
+            }
+                const response = await fetch(`http://localhost:3001/addBook`, {
                 method: "POST",
-                headers: {"content-Type": "application/json"},
+                headers: {"content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
                 body: JSON.stringify(bookData),
             });
             const data = await response.json();

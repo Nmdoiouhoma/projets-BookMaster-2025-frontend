@@ -29,7 +29,7 @@ class Login {
 
             if (status === 200) {
                 alert("Connexion réussie !");
-                window.location.href = "../public/index.html"; // Redirection après succès
+                window.location.href = "../public/Index.html"; // Redirection après succès
             } else {
                 alert("Échec de la connexion. Vérifiez vos identifiants et réessayez.");
             }
@@ -38,7 +38,7 @@ class Login {
 
     async authenticate(loginData) {
         try {
-            const response = await fetch("http://localhost:3000/login", {
+            const response = await fetch("http://localhost:3001/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(loginData),

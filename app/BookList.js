@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             };
 
                             localStorage.setItem("bookDetails", JSON.stringify(bookInfo));
-                            window.location.href = "../public/bookDetail.html";
+                            window.location.href = "../public/BookDetail.html";
                         });
                     });
                 } else {

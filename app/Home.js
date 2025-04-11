@@ -8,7 +8,7 @@ async function checkAuth() {
         const signupButton = document.getElementById("signupButton");
 
         try {
-            const response = await fetch("http://localhost:3000/user/me", {
+            const response = await fetch("http://localhost:3001/user/me", {
                 method: "GET",
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`, // Envoie le token
@@ -31,7 +31,7 @@ async function checkAuth() {
         } catch (error) {
             console.log("🚫 Utilisateur non connecté :", error.message);
             localStorage.removeItem("token");// Supprime le token invalide
-            window.location.href = "../public/login.html"
+            window.location.href = "../public/Login.html"
         }
 
     document.addEventListener("DOMContentLoaded", () => {

@@ -1,0 +1,177 @@
+#statusSelect {
+    appearance: none; /* Supprime le style par défaut du navigateur */
+    padding: 10px;
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol */
+#statusSelect:hover {
+    background-color: #f0f8ff;
+    border-color: #0056b3;
+}
+
+/* Effet au focus */
+#statusSelect:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+#statusSelect.open {
+    transform: scale(1.05);
+}
+
+
+#title{
+    text-align: center;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+.icon::before {
+    content: "📖"; /* Icône livre */
+    font-size: 18px;
+}
+
+.book-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+/* Carte de chaque livre */
+.book-card {
+    width: 220px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Image de couverture */
+.book-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Titre et auteur sous l'image */
+.book-card .title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 12px;
+    line-height: 1.4;
+}
+
+.book-card .author {
+    font-size: 14px;
+    color: #777;
+    margin-top: 8px;
+}
+
+/* Style pour les entrées de recherche et le bouton */
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 250px;
+    margin-right: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#bookCover {
+    width: 250px;  /* Augmente la largeur */
+    height: auto;  /* Garde les proportions */
+    display: block;
+    border-radius: 10px;  /* Ajoute des bords arrondis */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Effet d'ombre */
+}
+
+#updateType {
+    appearance: none; /* Supprime le style par défaut du navigateur */
+    padding: 10px;
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol */
+#updateType:hover {
+    background-color: #f0f8ff;
+    border-color: #0056b3;
+}
+
+/* Effet au focus */
+#updateType:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+#updateType.open {
+    transform: scale(1.05);
+}
+
+#deleteBook{
+    background-color:red;
+}
+
+/*
+#bookContainer{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+@todo alligner les elements de la page au centre
+*/
