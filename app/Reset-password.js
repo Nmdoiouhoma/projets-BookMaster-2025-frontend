@@ -27,7 +27,7 @@ async function resetPasswordAndRedirect() {
             }
 
             // Requête pour réinitialiser le mot de passe
-            fetch(`http://localhost:3000/reset-password/${token}`, {
+            fetch(`http://localhost:3001/reset-password/${token}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -38,7 +38,7 @@ async function resetPasswordAndRedirect() {
                 .then(data => {
                     if (data.message === "Mot de passe réinitialisé avec succès.") {
                         alert("Votre mot de passe a été réinitialisé avec succès.");
-                        window.location.href = "../public/login.html";  // Redirection vers la page de connexion
+                        window.location.href = "../public/Login.html";  // Redirection vers la page de connexion
                     } else {
                         alert("Une erreur est survenue.");
                     }

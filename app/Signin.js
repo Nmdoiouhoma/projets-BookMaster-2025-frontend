@@ -19,43 +19,50 @@ class Signin {
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
             const lastname = document.getElementById("lastname").value;
-
-
+            const dob = document.getElementById("dob").value;
+            const avatarInput = document.getElementById("avatar"); // 📌 Récupère l'input file
+            const avatarFile = avatarInput.files[0]; // 📌 Récupère le fichier sélectionné
 
             if (password !== confirmPassword) {
                 alert("Les mots de passe ne correspondent pas !");
-                return; // Stoppe la fonction si les mots de passe ne sont pas identiques
+                return;
             }
 
-            // Création de l'objet utilisateur
-            const userData = {
-                username: username,
-                lastname: lastname,
-                name: name,
-                email: email,
-                password: password
-            };
+            // Création de FormData pour envoyer le fichier correctement
+            const formData = new FormData();
+            formData.append("username", username);
+            formData.append("lastname", lastname);
+            formData.append("name", name);
+            formData.append("email", email);
+            formData.append("password", password);
+            formData.append("dob", dob);
 
-            console.log("Données envoyées au backend :", userData); // Vérifier les données envoyées
+            if (avatarFile) {
+                formData.append("avatar", avatarFile); // 📌 Envoie l'image correctement
+            }
 
-            // Envoi des données au backend
-            const status = await this.insert(userData);
+            // 🔥 Debug : Affiche les données envoyées dans la console
+            console.log("🔹 Données envoyées au backend :");
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}:`, value);
+            }
+
+            const status = await this.insert(formData);
 
             if (status === 201) {
                 alert("Compte créé avec succès !");
-                window.location.href = "../public/index.html"; // Redirection après succès
+                window.location.href = "../public/Index.html";
             } else {
                 alert("Erreur lors de l'inscription. Veuillez réessayer.");
             }
         });
     };
 
-    async insert(userData) {
+    async insert(formData) {
         try {
-            const response = await fetch("http://localhost:3000/signup", {
+            const response = await fetch("http://localhost:3001/signup", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(userData),
+                body: formData  // ❌ Ne pas ajouter de headers ici !
             });
 
             const responseData = await response.json();
@@ -69,4 +76,4 @@ class Signin {
     }
 }
 
-const signin = new Signin();
+const signin = new  Signin();

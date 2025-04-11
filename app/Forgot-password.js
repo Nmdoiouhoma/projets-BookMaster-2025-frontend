@@ -11,7 +11,7 @@ async function forgotPassword(event) {
 
     // Envoyer la requête pour demander la réinitialisation du mot de passe
     try {
-        const response = await fetch('http://localhost:3000/forgot-password', {
+        const response = await fetch('http://localhost:3001/forgot-password', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
