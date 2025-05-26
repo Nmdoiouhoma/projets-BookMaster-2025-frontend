@@ -24,13 +24,12 @@ async function checkAuth() {
             console.log("✅ Utilisateur connecté :", userData);
             alert(`Bienvenue sur Bookmaster, ${userData.username} ! 🎉`);
 
-            // Optionnel : cacher les boutons si l'utilisateur est connecté
             loginButton.style.display = "none";
             signupButton.style.display = "none";
 
         } catch (error) {
             console.log("🚫 Utilisateur non connecté :", error.message);
-            localStorage.removeItem("token");// Supprime le token invalide
+            localStorage.removeItem("token");
             window.location.href = "../public/Login.html"
         }
 

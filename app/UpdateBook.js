@@ -102,9 +102,8 @@ class  UpdateBook {
             const bookId = urlParams.get('id');
             const newStatus = document.getElementById("statusSelect").value;
             const newPage = document.getElementById("currentPageSelect").value
-            const decodedToken = JSON.parse(atob(token.split(".")[1])); // Décodage du JWT
+            const decodedToken = JSON.parse(atob(token.split(".")[1]));
             const userId = decodedToken.id;
-
 
             const response = await fetch(`http://localhost:3001/updateBook/${userId}/${bookId}`,  {
                 method: "PATCH",
@@ -165,7 +164,6 @@ class  UpdateBook {
             } else {
                 progressBar.classList.add("high");
             }
-
         }
     }
 

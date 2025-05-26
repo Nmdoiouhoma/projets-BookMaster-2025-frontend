@@ -1,6 +1,6 @@
 class Signin {
     constructor() {
-        this.confirmPassword(); // Ajout ici pour que la validation fonctionne dès le chargement
+        this.confirmPassword();
     }
 
     confirmPassword = () => {
@@ -11,7 +11,7 @@ class Signin {
         }
 
         form.addEventListener("submit", async (event) => {
-            event.preventDefault(); // Empêche l'envoi automatique du formulaire
+            event.preventDefault();
 
             const password = document.getElementById("password").value;
             const confirmPassword = document.getElementById("confirm_password").value;
