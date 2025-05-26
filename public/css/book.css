@@ -165,6 +165,10 @@ button:hover {
     background-color:red;
 }
 
+#welcome{
+    text-align: center;
+}
+
 /*
 #bookContainer{
     display: flex;
@@ -173,5 +177,4 @@ button:hover {
     justify-content: center;
     margin-top: 2rem;
 }
-@todo alligner les elements de la page au centre
-*/
+

@@ -20,8 +20,8 @@ class Signin {
             const email = document.getElementById("email").value;
             const lastname = document.getElementById("lastname").value;
             const dob = document.getElementById("dob").value;
-            const avatarInput = document.getElementById("avatar"); // 📌 Récupère l'input file
-            const avatarFile = avatarInput.files[0]; // 📌 Récupère le fichier sélectionné
+            const avatarInput = document.getElementById("avatars");
+            const avatarFile = avatarInput.files[0];
 
             if (password !== confirmPassword) {
                 alert("Les mots de passe ne correspondent pas !");
@@ -38,10 +38,9 @@ class Signin {
             formData.append("dob", dob);
 
             if (avatarFile) {
-                formData.append("avatar", avatarFile); // 📌 Envoie l'image correctement
+                formData.append("avatar", avatarFile);
             }
 
-            // 🔥 Debug : Affiche les données envoyées dans la console
             console.log("🔹 Données envoyées au backend :");
             for (let [key, value] of formData.entries()) {
                 console.log(`${key}:`, value);
@@ -62,7 +61,7 @@ class Signin {
         try {
             const response = await fetch("http://localhost:3001/signup", {
                 method: "POST",
-                body: formData  // ❌ Ne pas ajouter de headers ici !
+                body: formData
             });
 
             const responseData = await response.json();
