@@ -31,7 +31,7 @@ class UserSpace {
                 welcomeText.textContent = `🎉 Bienvenue dans ton espace personnel ${user.username} ! 😊`;
             }
 
-            // Affichage de l'avatar
+            // Affichage de l'avatars
             const avatarElement = document.getElementById("userAvatar");
             if (avatarElement) {
                 if (user.avatar) {
@@ -52,8 +52,8 @@ class UserSpace {
         if (!token) return null;
 
         try {
-            const payload = JSON.parse(atob(token.split(".")[1])); // Décodage du token JWT
-            return payload.id; // L'ID est stocké dans le payload du token
+            const payload = JSON.parse(atob(token.split(".")[1]));
+            return payload.id;
         } catch (error) {
             console.error("Erreur lors du décodage du token :", error);
             return null;
