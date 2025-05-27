@@ -1,6 +1,8 @@
 class Profil {
     constructor() {
+        this.printexistingInfo()
         this.confirmForm()
+
     }
     getUserIdFromToken() {
         const token = localStorage.getItem("token");
@@ -46,42 +48,35 @@ class Profil {
             return;
         }
 
+
         form.addEventListener("submit", async (event) => {
             event.preventDefault();
 
                 const name = document.getElementById("name").value;
                 const lastname = document.getElementById("lastname").value;
                 const mail = document.getElementById("mail").value;
-                const password = document.getElementById("password").value;
-                const confirmPassword = document.getElementById("confirmPassword").value;
                 const username = document.getElementById("username").value;
                 const dob = document.getElementById("dob").value;
-                const avatarInput = document.getElementById("avatars");
+                const avatarInput = document.getElementById("avatar");
                 const avatarFile = avatarInput.files[0];
 
-                if (password === !confirmPassword) {
-                    alert("Les 2 mot de passes ne sont pas identiques !");
-                }
-
-                const updateProfil = new FormData();
-                updateProfil.append("username", username);
-                updateProfil.append("lastname", lastname);
-                updateProfil.append("name", name);
-                updateProfil.append("mail", mail);
-                updateProfil.append("password", password);
-                updateProfil.append("dob", dob);
-                updateProfil.append("avatars", avatarInput.files[0]);
+                const formData = new FormData();
+                formData.append("username", username);
+                formData.append("lastname", lastname);
+                formData.append("name", name);
+                formData.append("mail", mail);
+                formData.append("dob", dob);
 
                 if (avatarFile) {
-                    updateProfil.append("avatars", avatarFile);
+                    formData.append("avatar", avatarFile);
                 }
 
                 console.log("🔹 Données envoyées au backend :");
-                for (let [key, value] of updateProfil.entries()) {
+                for (let [key, value] of formData.entries()) {
                     console.log(`${key}:`, value);
                 }
 
-                const status = await this.sendProfile(updateProfil);
+                const status = await this.sendProfile(formData);
 
                 console.log("le status", status)
                 if (status === 200) {
@@ -92,6 +87,32 @@ class Profil {
                 }
         })
     }
-}
+    async printexistingInfo() {
+        try {
+            const token = localStorage.getItem("token");
 
-const profil = new Profil();
+            const response = await fetch("http://localhost:3001/user/me", {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            const user = await response.json();
+
+            document.getElementById("username").value = user.username || "";
+            document.getElementById("lastname").value = user.lastname || "";
+            document.getElementById("name").value = user.name || "";
+            document.getElementById("mail").value = user.email || "";
+            document.getElementById("dob").value = user.date || "";
+
+            console.log("Réponse complète du serveur :", user);
+            return response.status;
+
+        } catch (error) {
+            console.error("Erreur lors de la récupération des données :", error);
+            return 500;
+        }
+    }
+}
+const profil = new Profil()

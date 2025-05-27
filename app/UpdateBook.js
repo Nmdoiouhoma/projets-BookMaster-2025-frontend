@@ -179,7 +179,6 @@ class  UpdateBook {
             select.appendChild(option);
         }
     }
-
     deleteBook() {
         const deleteButton = document.getElementById("deleteBook")
 
@@ -191,7 +190,6 @@ class  UpdateBook {
             this.fetchDeleteBook()
         })
     }
-
     async fetchDeleteBook(){
 
         const token = localStorage.getItem("token");
