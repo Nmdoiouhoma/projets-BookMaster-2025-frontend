@@ -64,7 +64,7 @@ class BookDetail {
             alert("Envoi des donnés vers la base de donnée reussi ✅ : ")
             window.location.href = "../public/UserSpace.html"
         } else {
-            alert("Erreur l\'envoie des donnés a échoué ❌")
+            alert("Erreur l\'envoie des donnés a échoué")
 
         }
     }
@@ -72,7 +72,7 @@ class BookDetail {
         try {
             const token = localStorage.getItem("token");
             if (!token) {
-                console.error("❌ Token manquant");
+                console.error("Token manquant");
                 return 401;
             }
                 const response = await fetch(`http://localhost:3001/addBook`, {
@@ -86,7 +86,7 @@ class BookDetail {
             console.log("Réponse complète du serveur :", data);
             return response.status
         } catch (erreur) {
-            console.error("Erreur lors de l'envoie des donnés ❌")
+            console.error("Erreur lors de l'envoie des donnés")
             return 500;
         }
     }
