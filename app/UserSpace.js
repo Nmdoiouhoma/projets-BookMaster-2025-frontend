@@ -135,7 +135,6 @@ class UserSpace {
                 } else {
                     console.warn("⚠️ Statut inconnu :", book.status);
                 }
-
             });
 
         } catch (error) {
@@ -146,3 +145,5 @@ class UserSpace {
 document.addEventListener("DOMContentLoaded", () => {
     new UserSpace();
 });
+
+module.exports = UserSpace
